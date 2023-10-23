@@ -22,6 +22,15 @@
       background: #0d2736;
     }
 
+    a.copyright {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 10px;
+      opacity: .45;
+    }
+
     .social-media-container {
       position: absolute;
       top: 0;
@@ -121,38 +130,30 @@
       </svg>
     </a>
   </div>
+  <a target="_blank" href="http://www.kennethcachia.com" class="copyright">A canvas experiment by Kenneth Cachia</a>
   <script>
     /*
-
-Shape Shifter
-=============
-A canvas experiment by Kenneth Cachia
-http://www.kennethcachia.com
-
-Updated code
-------------
-https://github.com/kennethcachia/Shape-Shifter 
-
-*/
+          Shape Shifter
+          =============
+          A canvas experiment by Kenneth Cachia
+          http://www.kennethcachia.com
+    
+          Updated code
+          ------------
+          https://github.com/kennethcachia/Shape-Shifter 
+    */
 
     var FONT_SIZE = 500,
       FONT_FAMILY = "Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
-      DRAW_CIRCLE_MULTIPLIER_PI = Math.floor(Math.random() * (3 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
-      // DRAW_CIRCLE_MULTIPLIER_PI = 2;
+      DRAW_CIRCLE_MULTIPLIER_PI = Math.floor(Math.random() * (4 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
+    // DRAW_CIRCLE_MULTIPLIER_PI = 2;
 
     var S = {
       init: function () {
-        var action = window.location.href,
-          i = action.indexOf("?a=");
-
         S.Drawing.init(".canvas");
         document.body.classList.add("body--ready");
 
-        if (i !== -1) {
-          S.UI.simulate(decodeURI(action).substring(i + 3));
-        } else {
-          S.UI.simulate("|Pourghannad|Front-End Developer|");
-        }
+        S.UI.simulate("Pourghannad|Front-End Developer||");
 
         S.Drawing.loop(function () {
           S.Shape.render();
