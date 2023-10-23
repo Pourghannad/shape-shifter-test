@@ -31,7 +31,7 @@
       opacity: .45;
     }
 
-    .social-media-container {
+    .body--ready .social-media-container {
       position: absolute;
       top: 0;
       z-index: 1;
@@ -42,8 +42,31 @@
       right: 0;
       margin: auto;
       display: flex;
+      opacity: 1;
+      visibility: visible;
       align-items: center;
       justify-content: center;
+      animation-name: socialMedia;
+      animation-duration: 5.35s;
+      animation-iteration-count: 1;
+    }
+
+    @keyframes socialMedia {
+      0% {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      90% {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translate3d(0px, 0px, 0px);
+      }
     }
 
     .social-media-container a svg {
@@ -52,7 +75,7 @@
     }
 
     .social-media-container a {
-      margin: 0 6px;
+      margin: 0 10px;
     }
 
     .social-media-container a svg path,
@@ -145,8 +168,10 @@
 
     var FONT_SIZE = 500,
       FONT_FAMILY = "Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
-      DRAW_CIRCLE_MULTIPLIER_PI = Math.floor(Math.random() * (4 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
-    // DRAW_CIRCLE_MULTIPLIER_PI = 2;
+      // DRAW_CIRCLE_MULTIPLIER_PI = Math.floor(Math.random() * (4 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
+      DRAW_CIRCLE_MULTIPLIER_PI = 2,
+      DRAW_CIRCLE_MULTIPLIER_Z = 0.75;
+
 
     var S = {
       init: function () {
@@ -207,7 +232,7 @@
         drawCircle: function (p, c) {
           context.fillStyle = c.render();
           context.beginPath();
-          context.arc(p.x, p.y, p.z, 0, DRAW_CIRCLE_MULTIPLIER_PI * Math.PI, true);
+          context.arc(p.x, p.y, p.z * DRAW_CIRCLE_MULTIPLIER_Z, 0, DRAW_CIRCLE_MULTIPLIER_PI * Math.PI, true);
           context.closePath();
           context.fill();
         },
