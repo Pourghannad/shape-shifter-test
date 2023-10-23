@@ -135,6 +135,11 @@ https://github.com/kennethcachia/Shape-Shifter
 
 */
 
+    var FONT_SIZE = 500,
+      FONT_FAMILY = "Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
+      DRAW_CIRCLE_MULTIPLIER_PI = Math.floor(Math.random() * (3 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
+      // DRAW_CIRCLE_MULTIPLIER_PI = 2;
+
     var S = {
       init: function () {
         var action = window.location.href,
@@ -201,7 +206,7 @@ https://github.com/kennethcachia/Shape-Shifter
         drawCircle: function (p, c) {
           context.fillStyle = c.render();
           context.beginPath();
-          context.arc(p.x, p.y, p.z, 0, 2 * Math.PI, true);
+          context.arc(p.x, p.y, p.z, 0, DRAW_CIRCLE_MULTIPLIER_PI * Math.PI, true);
           context.closePath();
           context.fill();
         },
@@ -209,8 +214,7 @@ https://github.com/kennethcachia/Shape-Shifter
     })();
 
     S.UI = (function () {
-      var commands = document.querySelector(".commands"),
-        canvas = document.querySelector(".canvas"),
+      var canvas = document.querySelector(".canvas"),
         interval,
         isTouch = false, //('ontouchstart' in window || navigator.msMaxTouchPoints),
         currentAction,
@@ -507,8 +511,8 @@ https://github.com/kennethcachia/Shape-Shifter
       var gap = 13,
         shapeCanvas = document.createElement("canvas"),
         shapeContext = shapeCanvas.getContext("2d"),
-        fontSize = 500,
-        fontFamily = "Avenir, Helvetica Neue, Helvetica, Arial, sans-serif";
+        fontSize = FONT_SIZE,
+        fontFamily = FONT_FAMILY;
 
       function fit() {
         shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
