@@ -181,7 +181,8 @@
       FONT_FAMILY = "Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
       // DRAW_CIRCLE_MULTIPLIER_PI = Math.floor(Math.random() * (4 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
       DRAW_CIRCLE_MULTIPLIER_PI = 2,
-      DRAW_CIRCLE_MULTIPLIER_Z = 0.8;
+      DRAW_CIRCLE_MULTIPLIER_Z = 0.2,
+      SHAPE_GAP = 5;
 
 
     var S = {
@@ -545,7 +546,7 @@
     };
 
     S.ShapeBuilder = (function () {
-      var gap = 13,
+      var gap = SHAPE_GAP,
         shapeCanvas = document.createElement("canvas"),
         shapeContext = shapeCanvas.getContext("2d"),
         fontSize = FONT_SIZE,
