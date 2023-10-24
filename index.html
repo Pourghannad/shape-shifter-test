@@ -82,6 +82,17 @@
     .social-media-container a svg polygon {
       fill: #fff;
     }
+
+    @media screen and (max-width: 500px) {
+      .social-media-container a {
+        margin: 0 5px;
+      }
+
+      .social-media-container a svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
   </style>
 </head>
 
@@ -170,7 +181,7 @@
       FONT_FAMILY = "Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",
       // DRAW_CIRCLE_MULTIPLIER_PI = Math.floor(Math.random() * (4 * 100 - 1 * 100) + 1 * 100) / (1 * 100);
       DRAW_CIRCLE_MULTIPLIER_PI = 2,
-      DRAW_CIRCLE_MULTIPLIER_Z = 0.75;
+      DRAW_CIRCLE_MULTIPLIER_Z = 0.8;
 
 
     var S = {
